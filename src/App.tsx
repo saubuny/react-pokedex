@@ -1,14 +1,16 @@
 import { useState, FC } from 'react';
-import './App.css';
 import PokeCard from './components/PokeCard';
 
 const App: FC = () => {
 	const [count, setCount] = useState<number>(0);
+	const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 	return (
-		<div className="App">
-			<PokeCard ID={1} />
-		</div>
+		<>
+			{nums.map((c) => (
+				<PokeCard key={c} ID={c} />
+			))}
+		</>
 	);
 };
 

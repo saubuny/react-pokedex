@@ -6,6 +6,7 @@ interface PokeCardProps {
 	ID: number;
 }
 
+// Display a Pokemon's info given its ID
 const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 	const [poke, setPoke] = useState<Pokemon>();
 
@@ -23,8 +24,8 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 
 	return (
 		<>
-			<p>Card</p>
-			{poke?.name}
+			<p className="text-3xl font-bold underline">Card</p>
+			{poke?.name[0].toUpperCase().concat(poke?.name.slice(1))}
 		</>
 	);
 };
