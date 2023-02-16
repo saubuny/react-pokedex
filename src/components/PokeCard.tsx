@@ -24,8 +24,28 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 
 	return (
 		<>
-			<p className="text-3xl font-bold underline">Card</p>
-			{poke?.name[0].toUpperCase().concat(poke?.name.slice(1))}
+			<div className="shadow p-2 w-60 h-60 flex flex-col">
+				<div className="flex justify-between">
+					<h1 className="text-lg">{poke?.name[0].toUpperCase().concat(poke?.name.slice(1))}</h1>
+					<p className="text-sm text-gray-600">{poke?.id}</p>
+				</div>
+				<img
+					className="object-contain"
+					src={
+						poke?.sprites.versions['generation-v']['black-white'].animated.front_default ||
+						(poke?.sprites.front_default as string)
+					}
+					alt=""
+				/>
+				<div>
+					<p className="text-sm text-gray-600">
+						Abilities: {poke?.abilities.map((a) => a.ability.name + ' ')}
+					</p>
+					<p className="text-sm text-gray-600">
+						Types: {poke?.types.map((t) => t.type.name + ' ')}
+					</p>
+				</div>
+			</div>
 		</>
 	);
 };
