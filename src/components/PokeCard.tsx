@@ -5,41 +5,43 @@ import { MainClient, Pokemon } from 'pokenode-ts';
 const typeBg = (type: string | undefined): string => {
 	switch (type) {
 		case 'normal':
-			return 'bg-stone-400';
+			return 'bg-[#a8a878]';
 		case 'fire':
-			return 'bg-orange-500';
+			return 'bg-[#f08030]';
 		case 'water':
-			return 'bg-blue-400';
+			return 'bg-[#6890f0]';
 		case 'grass':
-			return 'bg-green-500';
+			return 'bg-[#78c850]';
 		case 'electric':
-			return 'bg-yellow-300';
+			return 'bg-[#f8d030]';
 		case 'ice':
-			return 'bg-cyan-200';
+			return 'bg-[#98d8d8]';
 		case 'fighting':
-			return 'bg-red-600';
+			return 'bg-[#c03028]';
 		case 'poison':
-			return 'bg-purple-500';
+			return 'bg-[#a040a0]';
 		case 'ground':
-			return 'bg-yellow-500';
+			return 'bg-[#e0c068]';
 		case 'flying':
-			return 'bg-indigo-300';
+			return 'bg-[#a890f0]';
 		case 'psychic':
-			return 'bg-pink-500';
+			return 'bg-[#f85888]';
 		case 'bug':
-			return 'bg-lime-500';
+			return 'bg-[#a8b820]';
 		case 'rock':
-			return 'bg-yellow-600';
+			return 'bg-[#b8a038]';
 		case 'ghost':
-			return 'bg-violet-800';
+			return 'bg-[#705898]';
 		case 'dark':
-			return 'bg-yellow-900';
+			return 'bg-[#705848]';
 		case 'dragon':
-			return 'bg-indigo-700';
+			return 'bg-[#7038f8]';
 		case 'steel':
-			return 'bg-slate-300';
+			return 'bg-[#b8b8d0]';
 		case 'fairy':
-			return 'bg-pink-200';
+			return 'bg-[#ee99ac]';
+		case '???':
+			return 'bg-[#68a090]';
 		default:
 			return '';
 	}
@@ -83,7 +85,7 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 				/>
 				<div className="h-px bg-gray-200 m-1"></div>
 				<div className="flex flex-row items-center justify-between">
-					<h1 className="text-lg">{capitalize(poke?.name)}</h1>
+					<h1 className="text-lg">{capitalize(poke?.name || 'loading')}</h1>
 					<p className="text-xs text-gray-400">#{poke?.id}</p>
 				</div>
 				<div className="flex gap-1">
