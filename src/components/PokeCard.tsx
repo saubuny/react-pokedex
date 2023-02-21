@@ -25,9 +25,9 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 
 	return (
 		<>
-			<div className="shadow dark:bg-onedark-dark rounded p-2 w-60 flex flex-col cursor-pointer">
+			<div className="shadow dark:bg-onedark-dark rounded p-2 w-60 flex flex-col">
 				<img
-					className="object-contain h-24"
+					className="cursor-pointer object-contain h-24"
 					src={
 						poke?.sprites.versions['generation-v']['black-white'].animated.front_default ||
 						(poke?.sprites.front_default as string)
@@ -43,7 +43,7 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 						return (
 							<>
 								<span
-									className={`grow text-center text-sm text-nord-white p-1 rounded ${typeBg(
+									className={`cursor-pointer grow text-center text-sm text-nord-white p-1 rounded ${typeBg(
 										t.type.name
 									)}`}
 								>
