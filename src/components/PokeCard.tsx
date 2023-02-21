@@ -25,7 +25,7 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 
 	return (
 		<>
-			<div className="shadow dark:bg-onedark-dark rounded p-2 w-60 flex flex-col">
+			<div className="shadow dark:bg-onedark-dark rounded p-2 w-full flex flex-col">
 				<img
 					className="cursor-pointer object-contain h-24"
 					src={
