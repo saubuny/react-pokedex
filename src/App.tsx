@@ -11,9 +11,10 @@ const App: FC = () => {
 
 	return (
 		<>
+			{/* Put dark in here to change theme */}
 			<div className="dark">
 				<Navbar />
-				<div className="bg-nord-white dark:bg-onedark-darker">
+				<div className="pt-12 bg-nord-white dark:bg-onedark-darker">
 					<CardList IDList={nums} />
 				</div>
 			</div>
