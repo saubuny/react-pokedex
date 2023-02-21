@@ -1,5 +1,6 @@
 import { useState, FC } from 'react';
 import CardList from './components/CardList';
+import Navbar from './components/Navbar';
 
 const App: FC = () => {
 	const [count, setCount] = useState<number>(0);
@@ -11,6 +12,7 @@ const App: FC = () => {
 	return (
 		<>
 			<div className="dark">
+				<Navbar />
 				<div className="bg-nord-white dark:bg-onedark-darker">
 					<CardList IDList={nums} />
 				</div>
