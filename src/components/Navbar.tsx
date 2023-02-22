@@ -10,7 +10,7 @@ const Navbar: FC<NavbarProps> = ({ scroll }) => {
 		<>
 			<div
 				className={
-					'flex items-center justify-between w-full bg-nord-white dark:bg-onedark-dark p-2 z-10 sticky top-0 ' +
+					'flex items-center justify-between w-full bg-nord-white dark:bg-onedark-dark p-2 z-10 fixed transition-all ' +
 					(scroll > 0 ? 'h-12 drop-shadow' : 'h-16')
 				}
 			>
