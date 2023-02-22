@@ -41,15 +41,14 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 				<div className="flex gap-1">
 					{poke?.types.map((t) => {
 						return (
-							<>
-								<span
-									className={`cursor-pointer grow text-center text-sm text-nord-white p-1 rounded ${typeBg(
-										t.type.name
-									)}`}
-								>
-									{capitalize(t.type.name)}
-								</span>
-							</>
+							<span
+								className={`cursor-pointer grow text-center text-sm text-nord-white p-1 rounded ${typeBg(
+									t.type.name
+								)}`}
+								key={t.type.name}
+							>
+								{capitalize(t.type.name)}
+							</span>
 						);
 					})}
 				</div>
