@@ -25,7 +25,7 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 
 	return (
 		<>
-			<div className="hover:-translate-y-1 shadow dark:bg-onedark-dark rounded p-2 w-full flex flex-col">
+			<div className="hover:-translate-y-1 transition-all shadow-md border dark:border-onedark-gutter-gray dark:bg-onedark-dark rounded p-2 w-full flex flex-col">
 				<img
 					className="cursor-pointer object-contain h-24"
 					src={
@@ -33,7 +33,7 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 						(poke?.sprites.front_default as string)
 					}
 				/>
-				<div className="h-px bg-gray-200 m-1"></div>
+				<div className="h-px bg-nord-white dark:bg-onedark-gutter-gray m-1"></div>
 				<div className="flex flex-row items-center justify-between">
 					<h1 className="dark:text-nord-white text-lg">{capitalize(poke?.name || 'loading')}</h1>
 					<p className="text-xs text-gray-400">#{poke?.id}</p>
