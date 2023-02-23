@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Root from './routes/Root';
+import App from './routes/App';
 import './index.css';
-import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
 import Home from './routes/Home';
 import PokemonCards from './routes/PokemonCards';
@@ -11,7 +11,7 @@ import PokemonInfo from './routes/PokemonInfo';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <Root />,
+		element: <App />,
 		errorElement: <ErrorPage />,
 		children: [
 			{
