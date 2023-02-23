@@ -27,7 +27,7 @@ const PokeCard: FC<PokeCardProps> = ({ ID }) => {
 		<>
 			<div className="hover:-translate-y-1 transition-all shadow-md border dark:border-onedark-gutter-gray dark:bg-onedark-dark rounded p-2 w-full flex flex-col">
 				<img
-					className="cursor-pointer object-contain h-24"
+					className="cursor-pointer object-contain h-24 m-4"
 					src={
 						poke?.sprites.versions['generation-v']['black-white'].animated.front_default ||
 						(poke?.sprites.front_default as string)

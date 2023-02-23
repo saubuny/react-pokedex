@@ -24,7 +24,7 @@ const App: FC = () => {
 		<>
 			<div>
 				<Navbar scroll={scroll} />
-				<div className="pt-14 bg-nord-white dark:bg-onedark-darker">
+				<div className="pt-16 bg-nord-white dark:bg-onedark-darker">
 					<CardList IDList={nums} />
 				</div>
 			</div>
