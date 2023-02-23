@@ -5,29 +5,29 @@ import { capitalize } from '../extra/capitalize';
 import { Link } from 'react-router-dom';
 
 interface PokeCardProps {
-	ID: number;
+	id: number;
 }
 
-// Display a Pokemon's info given its ID
-const PokeCard: FC<PokeCardProps> = ({ ID }) => {
+// Display a Pokemon's info given its id
+const PokeCard: FC<PokeCardProps> = ({ id }) => {
 	const [poke, setPoke] = useState<Pokemon>();
 
 	useEffect(() => {
-		const pokeByID = async (ID: number) => {
+		const pokeByid = async (id: number) => {
 			const api = new MainClient();
 			await api.pokemon
-				.getPokemonById(ID)
+				.getPokemonById(id)
 				.then((data) => setPoke(data))
 				.catch((err) => console.error(err));
 		};
 
-		pokeByID(ID);
+		pokeByid(id);
 	}, []);
 
 	return (
 		<>
 			<div className="hover:-translate-y-1 transition-all shadow-md border dark:border-onedark-gutter-gray dark:bg-onedark-dark rounded p-2 w-full flex flex-col">
-				<Link to={`${ID}`} className="flex justify-center">
+				<Link to={`${id}`} className="flex justify-center">
 					<img
 						className="cursor-pointer object-contain h-24 m-4"
 						src={
