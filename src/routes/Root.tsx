@@ -1,10 +1,10 @@
 import { useState, FC, useEffect } from 'react';
-import CardList from './components/CardList';
-import Navbar from './components/Navbar';
+import { Outlet } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 const App: FC = () => {
 	const [scroll, setScroll] = useState<number>(0);
-	const [darkMode, setDarkMode] = useState<boolean>(true); // TODO: use context API for this
+	const [darkMode, setDarkMode] = useState<boolean>(false); // TODO: use context API for this
 
 	const nums: number[] = [];
 	for (let i = 1; i < 50; i++) {
@@ -12,7 +12,9 @@ const App: FC = () => {
 	}
 
 	useEffect(() => {
-		window.addEventListener('scroll', () => setScroll(window.scrollY));
+		const onScroll = () => setScroll(window.scrollY);
+		window.addEventListener('scroll', onScroll);
+		return () => window.removeEventListener('scroll', onScroll);
 	}, []);
 
 	// Toggle Dark Mode
@@ -25,7 +27,7 @@ const App: FC = () => {
 			<div>
 				<Navbar scroll={scroll} />
 				<div className="pt-16 bg-nord-white dark:bg-onedark-darker">
-					<CardList IDList={nums} />
+					<Outlet />
 				</div>
 			</div>
 		</>

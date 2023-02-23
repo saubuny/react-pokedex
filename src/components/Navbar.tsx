@@ -10,7 +10,7 @@ const Navbar: FC<NavbarProps> = ({ scroll }) => {
 		<>
 			<div
 				className={
-					'flex items-center justify-between w-full bg-nord-white dark:bg-onedark-dark dark:border-b dark:border-b-onedark-gutter-gray p-2 z-10 fixed transition-all ' +
+					'flex items-center justify-between w-full bg-nord-white dark:bg-onedark-dark dark:border-b dark:border-b-onedark-gutter-gray p-2 z-10 fixed transition-all duration-300 ' +
 					(scroll > 0 ? 'h-12 drop-shadow' : 'h-16')
 				}
 			>
@@ -20,14 +20,14 @@ const Navbar: FC<NavbarProps> = ({ scroll }) => {
 				</div>
 				<div id="right">
 					<nav className="flex gap-1">
-						<a
+						{/* <a
 							href="#"
 							className="dark:text-nord-white hover:bg-slate-200 dark:hover:bg-onedark-gutter-gray/[0.2] p-1 rounded"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							Home
-						</a>
+						</a> */}
 					</nav>
 				</div>
 			</div>

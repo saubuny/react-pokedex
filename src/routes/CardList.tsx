@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import PokeCard from './PokeCard';
+import PokeCard from '../components/PokeCard';
 
 interface CardListProps {
 	IDList: number[];
