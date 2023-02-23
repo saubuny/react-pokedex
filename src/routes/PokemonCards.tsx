@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import PokeCard from '../components/PokeCard';
 
-interface PokemonListProps {
+interface PokemonCardsProps {
 	IDList: number[];
 }
 
-const PokemonList: FC<PokemonListProps> = ({ IDList }) => {
+const PokemonCards: FC<PokemonCardsProps> = ({ IDList }) => {
 	return (
 		<>
 			<div className="m-4 grid gap-4 justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
@@ -17,4 +17,4 @@ const PokemonList: FC<PokemonListProps> = ({ IDList }) => {
 	);
 };
 
-export default PokemonList;
+export default PokemonCards;
