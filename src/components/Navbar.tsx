@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Link } from 'react-router-dom';
 import pokeball from '../assets/pokeball.png';
 
 interface NavbarProps {
@@ -20,14 +21,18 @@ const Navbar: FC<NavbarProps> = ({ scroll }) => {
 				</div>
 				<div id="right">
 					<nav className="flex gap-1">
-						{/* <a
-							href="#"
+						<Link
+							to={'home'}
 							className="dark:text-nord-white hover:bg-slate-200 dark:hover:bg-onedark-gutter-gray/[0.2] p-1 rounded"
-							target="_blank"
-							rel="noopener noreferrer"
 						>
 							Home
-						</a> */}
+						</Link>
+						<Link
+							to={'pokemon'}
+							className="dark:text-nord-white hover:bg-slate-200 dark:hover:bg-onedark-gutter-gray/[0.2] p-1 rounded"
+						>
+							Pokemon
+						</Link>
 					</nav>
 				</div>
 			</div>

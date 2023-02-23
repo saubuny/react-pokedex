@@ -4,8 +4,8 @@ import Root from './routes/Root';
 import './index.css';
 import { createBrowserRouter, Router, RouterProvider } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
-import CardList from './routes/CardList';
 import Home from './routes/Home';
+import PokemonList from './routes/Pokemon';
 
 const router = createBrowserRouter([
 	{
@@ -18,8 +18,8 @@ const router = createBrowserRouter([
 				element: <Home />,
 			},
 			{
-				path: 'cards',
-				element: <CardList IDList={[1, 2, 3, 4]} />,
+				path: 'pokemon',
+				element: <PokemonList IDList={[1, 2, 3, 4]} />,
 			},
 		],
 	},
