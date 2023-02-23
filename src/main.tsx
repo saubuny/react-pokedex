@@ -20,11 +20,11 @@ const router = createBrowserRouter([
 			},
 			{
 				path: 'pokemon',
-				element: <PokemonCards IDList={[1, 2, 3, 4]} />,
+				element: <PokemonCards />,
 			},
 			{
 				path: 'pokemon/:id',
-				element: <PokemonInfo ID={1} />,
+				element: <PokemonInfo />,
 			},
 		],
 	},

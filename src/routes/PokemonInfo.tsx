@@ -1,10 +1,8 @@
 import { FC } from 'react';
 
-interface PokemonInfoProps {
-	ID: number;
-}
-
-const PokemonInfo: FC<PokemonInfoProps> = ({ ID }) => {
+const PokemonInfo: FC = () => {
+	// Get ID from useParams
+	const ID = 1;
 	return <p>{ID}</p>;
 };
 

@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import PokeCard from '../components/PokeCard';
 
-interface PokemonCardsProps {
-	IDList: number[];
-}
+const PokemonCards: FC = () => {
+	// Set up pagination here
+	const IDList = [1, 2, 3, 4];
 
-const PokemonCards: FC<PokemonCardsProps> = ({ IDList }) => {
 	return (
 		<>
 			<div className="m-4 grid gap-4 justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
