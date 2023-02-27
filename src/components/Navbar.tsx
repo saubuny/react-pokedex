@@ -22,7 +22,7 @@ const Navbar: FC<NavbarProps> = ({ scroll }) => {
 				<div id="right">
 					<nav className="flex gap-1">
 						<Link
-							to={'home'}
+							to={''}
 							className="dark:text-nord-white hover:bg-slate-200 dark:hover:bg-onedark-gutter-gray/[0.2] p-1 rounded"
 						>
 							Home
