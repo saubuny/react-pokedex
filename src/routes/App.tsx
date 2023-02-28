@@ -1,6 +1,6 @@
-import { useState, FC, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import { useState, FC, useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 const App: FC = () => {
   const [scroll, setScroll] = useState<number>(0);
@@ -13,13 +13,15 @@ const App: FC = () => {
 
   useEffect(() => {
     const onScroll = () => setScroll(window.scrollY);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   // Toggle Dark Mode
   useEffect(() => {
-    document.documentElement.className = darkMode ? 'dark bg-onedark-darker' : 'bg-nord-white';
+    document.documentElement.className = darkMode
+      ? "dark bg-onedark-darker"
+      : "bg-nord-white";
   }, [darkMode]);
 
   return (
