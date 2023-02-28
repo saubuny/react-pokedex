@@ -4,7 +4,7 @@ import Pagination from "../components/Pagination";
 import { CardType } from "../extra/CardType";
 
 // TODO: move the id list from page math to the cardlist itself, so it'd take pages instead of an idList
-const PER_PAGE = 20;
+const PER_PAGE = 24;
 const MAX_POKE_ID = 1008; // TODO: Perhaps find a way to get this info from the API ?
 
 const PokemonPage: FC = () => {

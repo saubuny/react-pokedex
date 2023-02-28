@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FC, FormEvent, FormEventHandler, useEffect, useState } from "react";
+import { ChangeEventHandler, FC, FormEventHandler, useEffect, useState } from "react";
 
 interface PaginationProps {
   changePage: (page: number) => void;
