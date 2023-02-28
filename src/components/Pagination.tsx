@@ -1,12 +1,12 @@
 import { FC } from "react";
 
-interface PageFormProps {
+interface PaginationProps {
   changePage: (page: number) => void;
   page: number;
 }
 
 // TODO: Rename this because its a button now and not a form
-const PageForm: FC<PageFormProps> = ({ changePage, page }) => {
+const Pagination: FC<PaginationProps> = ({ changePage, page }) => {
   return (
     <>
      <div className="flex justify-center gap-1">
@@ -17,4 +17,4 @@ const PageForm: FC<PageFormProps> = ({ changePage, page }) => {
   );
 };
 
-export default PageForm;
+export default Pagination;

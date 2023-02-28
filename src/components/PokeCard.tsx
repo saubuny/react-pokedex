@@ -12,17 +12,18 @@ interface PokeCardProps {
 const PokeCard: FC<PokeCardProps> = ({ id }) => {
   const [poke, setPoke] = useState<Pokemon>();
 
-  // Move this fetching to the card list
   useEffect(() => {
-    const pokeByid = async (id: number) => {
+    const pokeById = async (id: number) => {
       const pokeClient = new PokemonClient();
       await pokeClient
         .getPokemonById(id)
-        .then((data) => setPoke(data))
+        .then((data) => {
+          setPoke(data);
+        })
         .catch((err) => console.error(err));
     };
 
-    pokeByid(id);
+    pokeById(id);
   }, []);
 
   return (
