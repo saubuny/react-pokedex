@@ -9,10 +9,20 @@ interface PaginationProps {
 const Pagination: FC<PaginationProps> = ({ changePage, page }) => {
   return (
     <>
-     <div className="flex justify-center gap-1">
-        <button className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-1 rounded" onClick={() => changePage(page + 1)}>Next Page</button>
-        <button className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-1 rounded" onClick={() => changePage(page - 1)}>Last Page</button>
-      </div> 
+      <div className="flex justify-center gap-1">
+        <button
+          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-1 rounded"
+          onClick={() => changePage(page + 1)}
+        >
+          Next Page
+        </button>
+        <button
+          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-1 rounded"
+          onClick={() => changePage(page - 1)}
+        >
+          Last Page
+        </button>
+      </div>
     </>
   );
 };

@@ -9,7 +9,6 @@ interface CardListProps {
 
 // Change idList to a list of items
 const CardList: FC<CardListProps> = ({ type, idList }) => {
-
   return (
     <>
       <div className="m-4 grid gap-4 justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">

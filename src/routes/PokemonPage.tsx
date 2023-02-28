@@ -3,20 +3,18 @@ import CardList from "../components/CardList";
 import Pagination from "../components/Pagination";
 import { CardType } from "../extra/CardType";
 
-const PER_PAGE = 20;
+// TODO: move the id list from page math to the cardlist itself, so it'd take pages instead of an idList
+const PER_PAGE = 100;
+const MAX_POKE_ID = 1008;
 
 const PokemonPage: FC = () => {
-  // Pagination in state
   const [page, setPage] = useState<number>(1);
   const [ids, setIds] = useState<number[]>([1]);
 
-  // Use a seperate form component to change pagination, send it a handler function
   const changePage = (page: number) => {
-    // Page limits
     if (page < 1) return;
     if (page > 10000) return; // TODO: Add real limit for pagination
 
-    // Update displayed pokemon cards
     setPage(page);
     const newIds = [];
     for (let i = page * PER_PAGE - (PER_PAGE - 1); i <= page * PER_PAGE; i++)
@@ -25,11 +23,13 @@ const PokemonPage: FC = () => {
   };
 
   // We need to be able to see pokemon without having to change the page first
-  useEffect(() => changePage(1), []);
+  useEffect(() => changePage(10), []);
 
-  // Debugging
-  useEffect(() => console.log(ids), [ids]);
-  useEffect(() => console.log(page), [page]);
+  // TODO: PLEASE FIND A WAY TO FIND MAX 
+  useEffect(() => {
+    console.log(page);
+    console.log((ids[ids.length -1 ] % PER_PAGE) );
+  },[page])
 
   return (
     <>
