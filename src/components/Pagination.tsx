@@ -19,6 +19,7 @@ const Pagination: FC<PaginationProps> = ({ changePage, page }) => {
   useEffect(() => setInputPage(page.toString()), [page]);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    if (e.currentTarget.value.length > 2) return;
     setInputPage(e.currentTarget.value);
   };
 
@@ -37,26 +38,26 @@ const Pagination: FC<PaginationProps> = ({ changePage, page }) => {
     <>
       <div className="flex justify-center gap-2 m-4">
         <button
-          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg"
+          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray"
           onClick={() => handleClick(page - 1)}
         >
           {"<-"}
         </button>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="flex gap-2">
           <input
-            className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg"
+            className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg w-10 shadow-md border dark:border-onedark-gutter-gray text-center outline-none "
             onChange={handleChange}
             value={inputPage}
           />
           <button
             type="submit"
-            className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg"
+            className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray"
           >
             Go
           </button>
         </form>
         <button
-          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg"
+          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray"
           onClick={() => handleClick(page + 1)}
         >
           {"->"}
