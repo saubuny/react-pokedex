@@ -6,7 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import Home from "./routes/Home";
 import PokemonInfo from "./routes/PokemonInfo";
-import PokemonPage from "./routes/PokemonPage";
+import CardPage from "./routes/CardPage";
+import { CardType } from "./extra/CardType";
 
 const router = createBrowserRouter([
   {
@@ -20,11 +21,11 @@ const router = createBrowserRouter([
       },
       {
         path: "pokemon",
-        element: <PokemonPage />,
+        element: <CardPage type={CardType.POKECARD} />,
       },
       {
         path: "pokemon/:page",
-        element: <PokemonPage />,
+        element: <CardPage type={CardType.POKECARD} />,
       },
       {
         path: "pokemon/id/:id",

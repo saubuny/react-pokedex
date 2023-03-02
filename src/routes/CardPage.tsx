@@ -1,22 +1,25 @@
 import { FC, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import CardList from "../components/CardList";
 import Pagination from "../components/Pagination";
 import { CardType } from "../extra/CardType";
+import PokeCard from "../components/PokeCard";
 
 // TODO: Show us an error when we try to go to a nonexisting page (less than 1 or greater than max page) instead of just loading page one or whatever we do right now
 
-// TODO: move the id list from page math to the cardlist itself, so it'd take pages instead of an idList
 const PER_PAGE = 24;
 const MAX_POKE_ID = 1008; // TODO: Perhaps find a way to get this info from the API ?
 
-type PokemonPageParams = {
+type CardPageParams = {
   page: string;
 };
 
-const PokemonPage: FC = () => {
+interface CardPageProps {
+  type: CardType;
+}
+
+const CardPage: FC<CardPageProps> = ({ type }) => {
   const navigate = useNavigate();
-  const { page } = useParams<PokemonPageParams>();
+  const { page } = useParams<CardPageParams>();
   const [pageNumber, setPageNumber] = useState<number>(1);
   const [ids, setIds] = useState<number[]>([1]);
 
@@ -45,7 +48,6 @@ const PokemonPage: FC = () => {
     navigate(`/pokemon/${newPage}`);
   };
 
-  // Update ID list on page change, remember that this logic is going to be moved to the CardList component
   useEffect(() => {
     const newIds = [];
     for (
@@ -59,10 +61,14 @@ const PokemonPage: FC = () => {
 
   return (
     <>
-      <CardList type={CardType.POKECARD} idList={ids} />
+      <div className="m-4 grid gap-4 justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+        {type === CardType.POKECARD && (
+          ids.map((id) => <PokeCard id={id} key={id} />)
+        )}
+      </div>
       <Pagination changePage={changePageNumber} page={pageNumber} />
     </>
   );
 };
 
-export default PokemonPage;
+export default CardPage;
