@@ -7,7 +7,7 @@ interface CardListProps {
   idList: number[];
 }
 
-// Change idList to a list of items
+// TODO: Change idList to the current page and do the math here
 const CardList: FC<CardListProps> = ({ type, idList }) => {
   return (
     <>

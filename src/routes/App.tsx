@@ -6,11 +6,6 @@ const App: FC = () => {
   const [scroll, setScroll] = useState<number>(0);
   const [darkMode, setDarkMode] = useState<boolean>(true); // TODO: use context API for this
 
-  const nums: number[] = [];
-  for (let i = 1; i < 50; i++) {
-    nums[i] = i;
-  }
-
   useEffect(() => {
     const onScroll = () => setScroll(window.scrollY);
     window.addEventListener("scroll", onScroll);
