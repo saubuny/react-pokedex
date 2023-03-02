@@ -3,11 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import Pagination from "../components/Pagination";
 import { CardType } from "../extra/CardType";
 import PokeCard from "../components/PokeCard";
+import { MAX_POKE_ID, PER_PAGE } from "../extra/constants";
 
 // TODO: Show us an error when we try to go to a nonexisting page (less than 1 or greater than max page) instead of just loading page one or whatever we do right now
 
-const PER_PAGE = 24;
-const MAX_POKE_ID = 1008; // TODO: Perhaps find a way to get this info from the API ?
 
 type CardPageParams = {
   page: string;
