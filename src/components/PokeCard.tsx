@@ -28,15 +28,15 @@ const PokeCard: FC<PokeCardProps> = ({ id }) => {
 
   return (
     <>
-      <div className="hover:-translate-y-1 transition-all shadow-md border dark:border-onedark-gutter-gray dark:bg-onedark-dark rounded p-2 w-full flex flex-col">
-        <Link to={`${id}`} className="flex justify-center">
+      <div className="hover:-translate-y-1 transition-transform shadow-md border dark:border-onedark-gutter-gray dark:bg-onedark-dark rounded p-2 w-full flex flex-col">
+        <Link to={`/pokemon/id/${id}`} className="flex justify-center">
           <img
             className="cursor-pointer object-contain h-24 m-4"
             src={
               poke?.sprites.versions["generation-v"]["black-white"].animated
                 .front_default || (poke?.sprites.front_default as string)
             }
-          />{" "}
+          />
         </Link>
         <div className="h-px bg-nord-white dark:bg-onedark-gutter-gray m-1"></div>
         <div className="flex flex-row items-center justify-between">

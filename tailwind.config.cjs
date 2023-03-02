@@ -10,7 +10,11 @@ module.exports = {
 				'onedark-gutter-gray': '#4b5263',
 				'onedark-comment-gray': '#5c6370',
 				'nord-white': '#eceff4',
+        'nord-white-2': '#e5e9f0'
 			},
+      transitionProperty: {
+        'height': 'height',
+      }
 		},
 	},
 	plugins: [],

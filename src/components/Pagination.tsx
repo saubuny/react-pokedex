@@ -38,26 +38,26 @@ const Pagination: FC<PaginationProps> = ({ changePage, page }) => {
     <>
       <div className="flex justify-center gap-2 m-4">
         <button
-          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray"
+          className="dark:text-nord-white dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray active:translate-y-0.5 transition-transform duration-75"
           onClick={() => handleClick(page - 1)}
         >
           {"<-"}
         </button>
         <form onSubmit={handleSubmit} className="flex gap-2">
           <input
-            className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg w-10 shadow-md border dark:border-onedark-gutter-gray text-center outline-none "
+            className="dark:text-nord-white bg-inherit dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg w-10 shadow-md border dark:border-onedark-gutter-gray text-center outline-none "
             onChange={handleChange}
             value={inputPage}
           />
           <button
             type="submit"
-            className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray"
+            className="dark:text-nord-white dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray active:translate-y-0.5 transition-transform duration-75"
           >
             Go
           </button>
         </form>
         <button
-          className="dark:text-nord-white bg-slate-200 dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray"
+          className="dark:text-nord-white dark:bg-onedark-gutter-gray/[0.2] p-2 rounded text-lg shadow-md border dark:border-onedark-gutter-gray active:translate-y-0.5 transition-transform duration-75"
           onClick={() => handleClick(page + 1)}
         >
           {"->"}

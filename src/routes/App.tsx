@@ -4,7 +4,11 @@ import Navbar from "../components/Navbar";
 
 const App: FC = () => {
   const [scroll, setScroll] = useState<number>(0);
-  const [darkMode, setDarkMode] = useState<boolean>(true); // TODO: use context API for this
+  const [darkMode, setDarkMode] = useState<boolean>(true);
+
+  const changeDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   useEffect(() => {
     const onScroll = () => setScroll(window.scrollY);
@@ -22,7 +26,7 @@ const App: FC = () => {
   return (
     <>
       <div>
-        <Navbar scroll={scroll} />
+        <Navbar scroll={scroll} changeDarkMode={changeDarkMode} />
         <div className="pt-16 bg-nord-white dark:bg-onedark-darker">
           <Outlet />
         </div>
