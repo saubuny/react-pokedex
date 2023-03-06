@@ -5,7 +5,7 @@ import {
   FlavorText,
   NamedAPIResource,
 } from "pokenode-ts";
-import { FC, useEffect, useState } from "react";
+import { FC, ReactElement, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { capitalize } from "../extra/capitalize";
@@ -18,6 +18,8 @@ type PokemonInfoParams = {
 };
 
 // Break this UI into many components because thats how react works :)
+
+// UI Inspo => https://pokemondb.net/pokedex/bulbasaur (i am not a UI designer)
 
 const PokemonInfo: FC = () => {
   // Get ID from useParams
@@ -60,21 +62,21 @@ const PokemonInfo: FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="mx-10">
+      <div className="flex flex-row items-center justify-center my-6">
+        <h1 className="dark:text-nord-white text-5xl">
+          {capitalize(poke?.name || "loading")}
+        </h1>
+      </div>
       <div>
         {
           // Button to prev pokemon
           // Button to next pokemon
         }
       </div>
-      <div className="flex flex-row items-center justify-center">
-        <h1 className="dark:text-nord-white text-lg">
-          {capitalize(poke?.name || "loading")}
-        </h1>
-        <p className="text-xs text-gray-400">#{poke?.id}</p>
-      </div>
-      <div className="flex flex-col sm:flex-row justify-center sm:justify-around">
-        <section>
+      <div className="w-full border dark:border-onedark-dark"></div>
+      <div className="grid grid-cols-3 gap-4 my-8">
+        <Card>
           <img
             className="m-4 h-72"
             src={
@@ -96,6 +98,12 @@ const PokemonInfo: FC = () => {
               );
             })}
           </div>
+        </Card>
+        <section>
+          <h1 className="dark:text-nord-white text-3xl">Data</h1>
+          {
+            //
+          }
         </section>
         <section>
           <DexEntry generation="shield" pokeSpecies={pokeSpecies} />
@@ -105,20 +113,20 @@ const PokemonInfo: FC = () => {
             // Weaknesses
           }
         </section>
+        <div>
+          <section>
+            {
+              // Base Stats
+            }
+          </section>
+          <section>
+            {
+              // Evolutions as Modified Cards
+            }
+          </section>
+        </div>
       </div>
-      <div>
-        <section>
-          {
-            // Base Stats
-          }
-        </section>
-        <section>
-          {
-            // Evolutions as Modified Cards
-          }
-        </section>
-      </div>
-    </>
+    </div>
   );
 };
 
@@ -134,6 +142,7 @@ interface DexEntryProps {
   pokeSpecies: PokemonSpecies | undefined;
 }
 
+// Export this
 const DexEntry: FC<DexEntryProps> = ({ generation, pokeSpecies }) => {
   if (typeof pokeSpecies === "undefined") return <>Loading...</>;
 
@@ -141,13 +150,31 @@ const DexEntry: FC<DexEntryProps> = ({ generation, pokeSpecies }) => {
 
   return (
     <>
-      <div className="dark:text-nord-white text-lg">
-        {capitalize(
-          entries
-            .filter((entry) => entry.language.name === "en")
-            .filter((entry) => entry.version.name === generation)[0].flavor_text
-        )}
-      </div>
+      <Card>
+        <blockquote className="text-gray-500 dark:text-onedark-white italic">
+          "
+          {capitalize(
+            entries
+              .filter((entry) => entry.language.name === "en")
+              .filter((entry) => entry.version.name === generation)[0]
+              .flavor_text
+          )}
+          "
+        </blockquote>
+      </Card>
     </>
+  );
+};
+
+// Export this
+interface CardProps {
+  children: ReactElement[] | ReactElement;
+}
+
+const Card: FC<CardProps> = ({ children }) => {
+  return (
+    <div className="shadow-md border dark:border-onedark-gutter-gray dark:bg-onedark-dark dark:text-nord-white rounded p-2 w-full flex flex-col">
+      {children}
+    </div>
   );
 };
