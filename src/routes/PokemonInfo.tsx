@@ -1,10 +1,10 @@
-import { GameClient, Pokemon, PokemonClient, PokemonSpecies } from "pokenode-ts";
+import { Pokemon, PokemonClient, PokemonSpecies } from "pokenode-ts";
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { capitalize } from "../extra/capitalize";
 import { MAX_POKE_ID } from "../extra/constants";
-import { typeBg } from "../extra/typeBg";
+import useTypeColor from "../hooks/useTypeColor";
 
 // I dont know why i have to use a type alias here instead of an interface
 type PokemonInfoParams = {
@@ -80,7 +80,7 @@ const PokemonInfo: FC = () => {
             {poke?.types.map((t) => {
               return (
                 <span
-                  className={`cursor-pointer grow text-center text-sm text-nord-white p-1 rounded ${typeBg(
+                  className={`cursor-pointer grow text-center text-sm text-nord-white p-1 rounded ${useTypeColor(
                     t.type.name
                   )}`}
                   key={t.type.name}
@@ -93,7 +93,9 @@ const PokemonInfo: FC = () => {
         </section>
         <section>
           <h1 className="dark:text-nord-white text-lg">
-            {capitalize(pokeSpecies?.flavor_text_entries[0].flavor_text || "loading")}
+            {capitalize(
+              pokeSpecies?.flavor_text_entries[0].flavor_text || "loading"
+            )}
           </h1>
           {
             // Dex entry

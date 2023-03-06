@@ -1,6 +1,6 @@
 import { FC, useEffect, useState } from "react";
 import { Pokemon, PokemonClient } from "pokenode-ts";
-import { typeBg } from "../extra/typeBg";
+import useTypeColor from "../hooks/useTypeColor";
 import { capitalize } from "../extra/capitalize";
 import { Link } from "react-router-dom";
 
@@ -49,7 +49,7 @@ const PokeCard: FC<PokeCardProps> = ({ id }) => {
           {poke?.types.map((t) => {
             return (
               <span
-                className={`cursor-pointer grow text-center text-sm text-nord-white p-1 rounded ${typeBg(
+                className={`cursor-pointer grow text-center text-sm text-nord-white p-1 rounded ${useTypeColor(
                   t.type.name
                 )}`}
                 key={t.type.name}

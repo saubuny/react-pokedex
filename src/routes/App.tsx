@@ -7,6 +7,7 @@ const App: FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
 
   const changeDarkMode = () => {
+    localStorage.setItem("darkMode", `${darkMode}`);
     setDarkMode(!darkMode);
   };
 
@@ -18,9 +19,14 @@ const App: FC = () => {
 
   // Toggle Dark Mode
   useEffect(() => {
-    document.documentElement.className = darkMode
-      ? "dark bg-onedark-darker"
-      : "bg-nord-white";
+    const lsDark = localStorage.getItem("darkMode");
+    if (!lsDark) {
+      localStorage.setItem("darkMode", `${darkMode}`);
+      return;
+    }
+
+    document.documentElement.className =
+      lsDark === "true" ? "dark bg-onedark-darker" : "bg-nord-white";
   }, [darkMode]);
 
   return (
