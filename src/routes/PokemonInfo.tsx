@@ -1,4 +1,10 @@
-import { Pokemon, PokemonClient, PokemonSpecies } from "pokenode-ts";
+import {
+  Pokemon,
+  PokemonClient,
+  PokemonSpecies,
+  FlavorText,
+  NamedAPIResource,
+} from "pokenode-ts";
 import { FC, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -92,11 +98,7 @@ const PokemonInfo: FC = () => {
           </div>
         </section>
         <section>
-          <h1 className="dark:text-nord-white text-lg">
-            {capitalize(
-              pokeSpecies?.flavor_text_entries[0].flavor_text || "loading"
-            )}
-          </h1>
+          <DexEntry generation="shield" pokeSpecies={pokeSpecies} />
           {
             // Dex entry
             // Heigh Weight Gender Category Abilities
@@ -121,3 +123,31 @@ const PokemonInfo: FC = () => {
 };
 
 export default PokemonInfo;
+
+// The wrapper doesn't include the version resource
+interface CorrectFlavorText extends FlavorText {
+  version: NamedAPIResource;
+}
+
+interface DexEntryProps {
+  generation: string;
+  pokeSpecies: PokemonSpecies | undefined;
+}
+
+const DexEntry: FC<DexEntryProps> = ({ generation, pokeSpecies }) => {
+  if (typeof pokeSpecies === "undefined") return <>Loading...</>;
+
+  const entries = pokeSpecies.flavor_text_entries as CorrectFlavorText[];
+
+  return (
+    <>
+      <div className="dark:text-nord-white text-lg">
+        {capitalize(
+          entries
+            .filter((entry) => entry.language.name === "en")
+            .filter((entry) => entry.version.name === generation)[0].flavor_text
+        )}
+      </div>
+    </>
+  );
+};
