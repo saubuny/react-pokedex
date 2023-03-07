@@ -134,9 +134,9 @@ interface DexEntryProps {
 // Export this
 const DexEntry: FC<DexEntryProps> = ({ pokeSpecies }) => {
   if (typeof pokeSpecies === "undefined") return <>Loading...</>;
-  const entry = pokeSpecies.flavor_text_entries.filter(
-    (entry) => entry.language.name === "en"
-  )[0].flavor_text;
+  const entry = pokeSpecies.flavor_text_entries
+    .filter((entry) => entry.language.name === "en")[0]
+    .flavor_text.replaceAll(/\n/g, " ");
 
   return (
     <>
