@@ -7,7 +7,6 @@ import { MAX_POKE_ID, PER_PAGE } from "../extra/constants";
 
 // TODO: Show us an error when we try to go to a nonexisting page (less than 1 or greater than max page) instead of just loading page one or whatever we do right now
 
-
 type CardPageParams = {
   page: string;
 };
@@ -61,9 +60,8 @@ const CardPage: FC<CardPageProps> = ({ type }) => {
   return (
     <>
       <div className="m-4 grid gap-4 justify-items-center sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
-        {type === CardType.POKECARD && (
-          ids.map((id) => <PokeCard id={id} key={id} />)
-        )}
+        {type === CardType.POKECARD &&
+          ids.map((id) => <PokeCard id={id} key={id} />)}
       </div>
       <Pagination changePage={changePageNumber} page={pageNumber} />
     </>

@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 
 const App: FC = () => {
   const [scroll, setScroll] = useState<number>(0);
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   const changeDarkMode = () => {
     localStorage.setItem("darkMode", `${darkMode}`);

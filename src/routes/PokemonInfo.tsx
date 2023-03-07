@@ -75,16 +75,16 @@ const PokemonInfo: FC = () => {
         }
       </div>
       <div className="w-full border dark:border-onedark-dark"></div>
-      <div className="grid grid-cols-3 gap-4 my-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-8">
         <Card>
           <img
-            className="m-4 h-72"
+            className="m-4 h-56 object-contain"
             src={
               poke?.sprites.versions["generation-v"]["black-white"].animated
                 .front_default || (poke?.sprites.front_default as string)
             }
           />
-          <div className="flex gap-1">
+          <div className="flex gap-1 mb-4">
             {poke?.types.map((t) => {
               return (
                 <span
@@ -98,33 +98,28 @@ const PokemonInfo: FC = () => {
               );
             })}
           </div>
+          <DexEntry pokeSpecies={pokeSpecies} />
         </Card>
-        <section>
+        <Card>
           <h1 className="dark:text-nord-white text-3xl">Data</h1>
           {
             //
           }
-        </section>
-        <section>
-          <DexEntry generation="shield" pokeSpecies={pokeSpecies} />
-          {
-            // Dex entry
-            // Heigh Weight Gender Category Abilities
-            // Weaknesses
-          }
-        </section>
-        <div>
+        </Card>
+        <Card>
           <section>
             {
               // Base Stats
             }
           </section>
-          <section>
-            {
-              // Evolutions as Modified Cards
-            }
-          </section>
-        </div>
+        </Card>
+        <Card>
+          {
+            // Dex entry
+            // Heigh Weight Gender Category Abilities
+            // Weaknesses
+          }
+        </Card>
       </div>
     </div>
   );
@@ -132,36 +127,22 @@ const PokemonInfo: FC = () => {
 
 export default PokemonInfo;
 
-// The wrapper doesn't include the version resource
-interface CorrectFlavorText extends FlavorText {
-  version: NamedAPIResource;
-}
-
 interface DexEntryProps {
-  generation: string;
   pokeSpecies: PokemonSpecies | undefined;
 }
 
 // Export this
-const DexEntry: FC<DexEntryProps> = ({ generation, pokeSpecies }) => {
+const DexEntry: FC<DexEntryProps> = ({ pokeSpecies }) => {
   if (typeof pokeSpecies === "undefined") return <>Loading...</>;
-
-  const entries = pokeSpecies.flavor_text_entries as CorrectFlavorText[];
+  const entry = pokeSpecies.flavor_text_entries.filter(
+    (entry) => entry.language.name === "en"
+  )[0].flavor_text;
 
   return (
     <>
-      <Card>
-        <blockquote className="text-gray-500 dark:text-onedark-white italic">
-          "
-          {capitalize(
-            entries
-              .filter((entry) => entry.language.name === "en")
-              .filter((entry) => entry.version.name === generation)[0]
-              .flavor_text
-          )}
-          "
-        </blockquote>
-      </Card>
+      <blockquote className="text-gray-500 dark:text-onedark-white italic">
+        "{entry}"
+      </blockquote>
     </>
   );
 };
