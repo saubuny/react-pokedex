@@ -136,7 +136,9 @@ const DexEntry: FC<DexEntryProps> = ({ pokeSpecies }) => {
   if (typeof pokeSpecies === "undefined") return <>Loading...</>;
   const entry = pokeSpecies.flavor_text_entries
     .filter((entry) => entry.language.name === "en")[0]
-    .flavor_text.replaceAll(/\n/g, " ");
+    .flavor_text.replaceAll(/[^a-zA-Z0-9. ]/g, " ");
+
+  useEffect(() => console.log(entry), []);
 
   return (
     <>
