@@ -1,7 +1,11 @@
 import { FC } from "react";
 
 const Home: FC = () => {
-  return <p className="dark:text-nord-white">Too much work</p>;
+  return (
+    <div className="flex flex-col items-center justify-center h-screen">
+      <h1 className="dark:text-nord-white text-2xl">Home screens are hard</h1>
+    </div>
+  );
 };
 
 export default Home;
